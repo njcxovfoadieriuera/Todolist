@@ -22,8 +22,6 @@ Route::get('/folders/{id}/tasks', [TaskController::class, 'index'])->name('tasks
 
 // Route::get('/folders/{id}/tasks', [App\Http\Controllers\TaskController::class, 'index'])->name('tasks.index');//web通り
 
-
-
 Route::get('/folder', [App\Http\Controllers\Controller::class, 'folder'])->name('folder');//フォルダ作成ページ遷移
 
 Route::get('/task', [App\Http\Controllers\Controller::class, 'task'])->name('task');//タスク作成ページ遷移
@@ -32,11 +30,7 @@ Route::get('/edit-task', [App\Http\Controllers\Controller::class, 'edit_task'])-
 
 Route::post('/folder_create', [App\Http\Controllers\Controller::class, 'folder_create'])->name('folder_create');//フォルダ作成機能
 
-
 Route::post('/task_create', [App\Http\Controllers\Controller::class, 'task_create'])->name('task_create');//タスク作成機能
-
-
-
 
 
 
