@@ -30,7 +30,6 @@ Route::get('/edit-task', [App\Http\Controllers\Controller::class, 'edit_task'])-
 
 Route::post('/folder_create', [App\Http\Controllers\Controller::class, 'folder_create'])->name('folder_create');//フォルダ作成機能
 
-
 Route::post('/task_create', [App\Http\Controllers\Controller::class, 'task_create'])->name('task_create');//タスク作成機能
 
 
