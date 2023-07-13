@@ -23,7 +23,6 @@ Route::get('/folders/{id}/tasks', [TaskController::class, 'index'])->name('tasks
 // Route::get('/folders/{id}/tasks', [App\Http\Controllers\TaskController::class, 'index'])->name('tasks.index');//web通り
 
 
-
 Route::get('/folder', [App\Http\Controllers\Controller::class, 'folder'])->name('folder');//フォルダ作成ページ遷移
 
 Route::get('/task', [App\Http\Controllers\Controller::class, 'task'])->name('task');//タスク作成ページ遷移
