@@ -9,6 +9,10 @@ class Folder extends Model
 {
     
     use HasFactory;
+    public function tasks()
+    {
+        return $this->hasMany('App\Models\Task');//一対多のリレーション組んでる
+    }
     protected $table = 'folders';
     protected $fillable = 
     [

@@ -13,11 +13,14 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->integer('folder_id');
+            $table->integer('folder_id')->unsigned();
             $table->string('title',100);
-            $table->integer('status');
-            $table->date('due_data');
+            $table->date('due_date');
+            $table->integer('status')->default(1);
             $table->timestamps();
+
+            // 外部キーを設定する
+            $table->foreign('folder_id')->references('id')->on('folders');
         });
     }
 
