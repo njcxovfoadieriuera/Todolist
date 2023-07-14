@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\FolderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +19,14 @@ use App\Http\Controllers\TaskController;
 //     return view('tasks');
 // });//タスク一覧ページを写す
 
-Route::get('/folders/{id}/tasks', [TaskController::class, 'index'])->name('tasks.index');//web通り
+Route::get('/folders/{id}/tasks', [TaskController::class, 'index'])->name('tasks.index');//web通りチャプター３
 
-// Route::get('/folders/{id}/tasks', [App\Http\Controllers\TaskController::class, 'index'])->name('tasks.index');//web通り
+// Route::get('/folders/create', 'FolderController@showCreateForm')->name('folders.create');//web通りチャプター５
+Route::get('/folders/create', [FolderController::class, 'showCreateForm'])->name('folders.create');//web通りチャプター５
+
+// Route::post('/folders/create', 'FolderController@create');//web通りチャプター５
+Route::post('/folders/create', [FolderController::class, 'create'])->name('folders.create');//web通りチャプター５
+
 
 Route::get('/folder', [App\Http\Controllers\Controller::class, 'folder'])->name('folder');//フォルダ作成ページ遷移
 
