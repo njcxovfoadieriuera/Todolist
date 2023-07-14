@@ -33,6 +33,12 @@ Route::get('/folders/{id}/tasks/create', [TaskController::class, 'showCreateForm
 // Route::post('/folders/{id}/tasks/create', 'TaskController@create');//web通りチャプター6
 Route::post('/folders/{id}/tasks/create', [TaskController::class, 'create']);//web通りチャプター6
 
+// Route::get('/folders/{id}/tasks/{task_id}/edit', 'TaskController@showEditForm')->name('tasks.edit');//web通りチャプター7
+Route::get('/folders/{id}/tasks/{task_id}/edit',  [TaskController::class, 'showEditForm'])->name('tasks.edit');//web通りチャプター7
+
+// Route::post('/folders/{id}/tasks/{task_id}/edit', 'TaskController@edit');//web通りチャプター7
+Route::post('/folders/{id}/tasks/{task_id}/edit', [TaskController::class, 'edit']);//web通りチャプター7
+
 
 
 
