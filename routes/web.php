@@ -27,6 +27,14 @@ Route::get('/folders/create', [FolderController::class, 'showCreateForm'])->name
 // Route::post('/folders/create', 'FolderController@create');//web通りチャプター５
 Route::post('/folders/create', [FolderController::class, 'create'])->name('folders.create');//web通りチャプター５
 
+// Route::get('/folders/{id}/tasks/create', 'TaskController@showCreateForm')->name('tasks.create');//web通りチャプター6
+Route::get('/folders/{id}/tasks/create', [TaskController::class, 'showCreateForm'])->name('tasks.create');//web通りチャプター6
+
+// Route::post('/folders/{id}/tasks/create', 'TaskController@create');//web通りチャプター6
+Route::post('/folders/{id}/tasks/create', [TaskController::class, 'create']);//web通りチャプター6
+
+
+
 
 Route::get('/folder', [App\Http\Controllers\Controller::class, 'folder'])->name('folder');//フォルダ作成ページ遷移
 
