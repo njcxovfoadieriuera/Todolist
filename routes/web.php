@@ -17,12 +17,12 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});//タスク一覧ページを写す
+// Route::get('/', function () {
+//     return view('welcome');
+// });//タスク一覧ページを写す
 
 // Route::get('/', 'HomeController@index')->name('home');//web通りチャプター８
-// Route::get('/', [HomeController::class, 'index'])->name('home');//web通りチャプター８
+Route::get('/', [HomeController::class, 'index'])->name('home');//web通りチャプター８
 
 
 Route::get('/folders/{id}/tasks', [TaskController::class, 'index'])->name('tasks.index');//web通りチャプター３
