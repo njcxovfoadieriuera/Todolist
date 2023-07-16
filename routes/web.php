@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\FolderController;
+use App\Http\Controllers\HomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +17,13 @@ use App\Http\Controllers\FolderController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('tasks');
-// });//タスク一覧ページを写す
+Route::get('/', function () {
+    return view('welcome');
+});//タスク一覧ページを写す
+
+// Route::get('/', 'HomeController@index')->name('home');//web通りチャプター８
+// Route::get('/', [HomeController::class, 'index'])->name('home');//web通りチャプター８
+
 
 Route::get('/folders/{id}/tasks', [TaskController::class, 'index'])->name('tasks.index');//web通りチャプター３
 

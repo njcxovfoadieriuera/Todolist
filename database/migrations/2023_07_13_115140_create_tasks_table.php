@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->integer('folder_id')->unsigned();
+            $table->bigInteger('folder_id')->unsigned();
             $table->string('title',100);
             $table->date('due_date');
             $table->integer('status')->default(1);
