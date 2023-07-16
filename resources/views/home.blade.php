@@ -13,6 +13,7 @@
               <a href="{{ route('folders.create') }}" class="btn btn-primary">
                 フォルダ作成ページへ
               </a>
+              
             </div>
           </div>
         </nav>
