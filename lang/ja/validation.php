@@ -26,7 +26,7 @@ return [
     'can' => ':attributeに権限のない値が含まれています。',
     'confirmed' => ':attributeと確認フィールドが一致していません。',
     'current_password' => 'パスワードが正しくありません。',
-    'date' => ':attributeには有効な日付を指定してください。',
+    'date' => ':attributeには日付を入力してください。',
     'date_equals' => ':attributeには、:dateと同じ日付けを指定してください。',
     'date_format' => ':attributeは:format形式で指定してください。',
     'decimal' => ':attributeは、小数点以下:decimal桁の数字を指定してください。',

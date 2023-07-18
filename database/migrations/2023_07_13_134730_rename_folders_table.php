@@ -9,16 +9,16 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::rename('forders', 'folders');
-    }
+    // public function up(): void
+    // {
+    //     Schema::rename('forders', 'folders');
+    // }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::rename('folders', 'forders');
-    }
+    // /**
+    //  * Reverse the migrations.
+    //  */
+    // public function down(): void
+    // {
+    //     Schema::rename('folders', 'forders');
+    // }
 };
