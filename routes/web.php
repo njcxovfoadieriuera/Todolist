@@ -21,29 +21,33 @@ use App\Http\Controllers\HomeController;
 //     return view('welcome');
 // });//タスク一覧ページを写す
 
-// Route::get('/', 'HomeController@index')->name('home');//web通りチャプター８
-Route::get('/', [HomeController::class, 'index'])->name('home');//web通りチャプター８
+Route::group(['middleware' => 'auth'], function() {
+    // Route::get('/', 'HomeController@index')->name('home');//web通りチャプター８
+    Route::get('/', [HomeController::class, 'index'])->name('home');//web通りチャプター８
 
 
-Route::get('/folders/{id}/tasks', [TaskController::class, 'index'])->name('tasks.index');//web通りチャプター３
+    Route::get('/folders/{id}/tasks', [TaskController::class, 'index'])->name('tasks.index');//web通りチャプター３
 
-// Route::get('/folders/create', 'FolderController@showCreateForm')->name('folders.create');//web通りチャプター５
-Route::get('/folders/create', [FolderController::class, 'showCreateForm'])->name('folders.create');//web通りチャプター５
+    // Route::get('/folders/create', 'FolderController@showCreateForm')->name('folders.create');//web通りチャプター５
+    Route::get('/folders/create', [FolderController::class, 'showCreateForm'])->name('folders.create');//web通りチャプター５
 
-// Route::post('/folders/create', 'FolderController@create');//web通りチャプター５
-Route::post('/folders/create', [FolderController::class, 'create'])->name('folders.create');//web通りチャプター５
+    // Route::post('/folders/create', 'FolderController@create');//web通りチャプター５
+    Route::post('/folders/create', [FolderController::class, 'create'])->name('folders.create');//web通りチャプター５
 
-// Route::get('/folders/{id}/tasks/create', 'TaskController@showCreateForm')->name('tasks.create');//web通りチャプター6
-Route::get('/folders/{id}/tasks/create', [TaskController::class, 'showCreateForm'])->name('tasks.create');//web通りチャプター6
+    // Route::get('/folders/{id}/tasks/create', 'TaskController@showCreateForm')->name('tasks.create');//web通りチャプター6
+    Route::get('/folders/{id}/tasks/create', [TaskController::class, 'showCreateForm'])->name('tasks.create');//web通りチャプター6
 
-// Route::post('/folders/{id}/tasks/create', 'TaskController@create');//web通りチャプター6
-Route::post('/folders/{id}/tasks/create', [TaskController::class, 'create']);//web通りチャプター6
+    // Route::post('/folders/{id}/tasks/create', 'TaskController@create');//web通りチャプター6
+    Route::post('/folders/{id}/tasks/create', [TaskController::class, 'create']);//web通りチャプター6
 
-// Route::get('/folders/{id}/tasks/{task_id}/edit', 'TaskController@showEditForm')->name('tasks.edit');//web通りチャプター7
-Route::get('/folders/{id}/tasks/{task_id}/edit',  [TaskController::class, 'showEditForm'])->name('tasks.edit');//web通りチャプター7
+    // Route::get('/folders/{id}/tasks/{task_id}/edit', 'TaskController@showEditForm')->name('tasks.edit');//web通りチャプター7
+    Route::get('/folders/{id}/tasks/{task_id}/edit',  [TaskController::class, 'showEditForm'])->name('tasks.edit');//web通りチャプター7
 
-// Route::post('/folders/{id}/tasks/{task_id}/edit', 'TaskController@edit');//web通りチャプター7
-Route::post('/folders/{id}/tasks/{task_id}/edit', [TaskController::class, 'edit']);//web通りチャプター7
+    // Route::post('/folders/{id}/tasks/{task_id}/edit', 'TaskController@edit');//web通りチャプター7
+    Route::post('/folders/{id}/tasks/{task_id}/edit', [TaskController::class, 'edit']);//web通りチャプター7
+});
+
+Auth::routes();
 
 
 
@@ -60,3 +64,7 @@ Route::post('/task_create', [App\Http\Controllers\Controller::class, 'task_creat
 
 
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

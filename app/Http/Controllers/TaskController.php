@@ -7,12 +7,15 @@ use App\Models\Folder;
 use App\Models\Task;
 use App\Http\Requests\CreateTask;
 use App\Http\Requests\EditTask;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
     public function index(int $id)
     {
-        $folders = Folder::all();
+        // ★ ユーザーのフォルダを取得する
+        $folders = Auth::user()->folders()->get();
+        // $folders = Folder::all();
         $current_folder = Folder::find($id);
         // $tasks = Task::where('folder_id', $current_folder->id)->get();一個下の行と同じことしてる
         $tasks = $current_folder->tasks()->get();//リレーション組んだ後にできる
