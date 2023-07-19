@@ -48,23 +48,3 @@ Route::group(['middleware' => 'auth'], function() {
 });
 
 Auth::routes();
-
-
-
-
-Route::get('/folder', [App\Http\Controllers\Controller::class, 'folder'])->name('folder');//フォルダ作成ページ遷移
-
-Route::get('/task', [App\Http\Controllers\Controller::class, 'task'])->name('task');//タスク作成ページ遷移
-
-Route::get('/edit-task', [App\Http\Controllers\Controller::class, 'edit_task'])->name('edit-task');//タスク編集ページ遷移
-
-Route::post('/folder_create', [App\Http\Controllers\Controller::class, 'folder_create'])->name('folder_create');//フォルダ作成機能
-
-Route::post('/task_create', [App\Http\Controllers\Controller::class, 'task_create'])->name('task_create');//タスク作成機能
-
-
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
