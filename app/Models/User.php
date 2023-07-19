@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Mail\ResetPassword; // ★ 追加
+use Illuminate\Support\Facades\Mail; // ★ 追加
 
 class User extends Authenticatable
 {
@@ -45,6 +47,12 @@ class User extends Authenticatable
 
     public function folders()
     {
-        return $this->hasMany('App\Folder');
+        return $this->hasMany('App\Models\Folder');
+        $current_folder->tasks()->save($task);
+    }
+
+    public function sendPasswordResetNotification($token)//パスワードリセットメール送信
+    {
+        Mail::to($this)->send(new ResetPassword($token));
     }
 }
