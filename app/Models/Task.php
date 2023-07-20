@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class Task extends Model
 {
@@ -19,6 +20,7 @@ class Task extends Model
     {
         // 状態値
         $status = $this->attributes['status'];
+        
 
         // 定義されていなければ空文字を返す
         if (!isset(self::STATUS[$status])) {
@@ -43,6 +45,17 @@ class Task extends Model
 
     public function getFormattedDueDateAttribute()
     {
+        // 状態値
+        // $status = $this->attributes['status'];
+        // if (isset($this->attributes['due_date'])) {
+        //     // attributes['due_date']に値がある場合の処理
+        //     // 例：値を取得して表示する
+        //     $dueDate = $this->attributes['due_date'];
+        //     echo "Due Date: " . $dueDate;
+        // } else {
+        //     // attributes['due_date']に値がない場合の処理
+        //     echo "Due Dateは設定されていません。";
+        // }
         return Carbon::createFromFormat('Y-m-d', $this->attributes['due_date'])
             ->format('Y/m/d');
     }
