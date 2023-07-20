@@ -19,7 +19,8 @@
               </div>
             @endif
             <form
-                action="{{ route('tasks.edit', ['id' => $task->folder_id, 'task_id' => $task->id]) }}"
+                action="{{ route('tasks.edit', [$task->folder_id,$task->id]) }}"
+                {{-- action="{{ route('tasks.edit', ['id','task_id']) }}" --}}
                 method="POST"
             >
             {{-- <form
